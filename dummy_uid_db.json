@@ -1,0 +1,20 @@
+{
+    "123456789012": {
+        "name": "Amit Roy",
+        "parent": "Suresh Roy",
+        "address": "Kolkata, India",
+        "dob": "1985-01-01"
+    },
+    "987654321098": {
+        "name": "Priya Singh",
+        "parent": "Ramesh Singh",
+        "address": "Mumbai, India",
+        "dob": "1990-05-15"
+    },
+    "4999988887777": {
+        "name": "Rohan Sen",
+        "parent": "Sujata Sen",
+        "address": "12B Lake View Road, South Kolkata, West Bengal, 700029",
+        "dob": "1990-12-15"
+    }
+}
