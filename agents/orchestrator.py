@@ -1,7 +1,7 @@
-from app.file_reader import extract_data_from_pdf
-from app.uid_validator import validate_uid
-from app.response_agent import send_confirmation_email
-from app.error_handler import error_handler
+from agents.file_reader import extract_data_from_pdf
+from agents.validate_uid import validate_uid
+from agents.response_agent import send_confirmation_email
+from agents.error_handler import error_handler
 import os, uuid
 
 TEMP_MEMORY = {}
