@@ -19,7 +19,10 @@ def orchestrator(user_input, uploaded_file):
     if not extracted_data:
         error_handler(file_id, "PDF could not be read or parsed by LLM")
         return "PDF is not readable"
-
+    print("user input")
+    print(user_input)
+    print("Extracted Data")
+    print(extracted_data)
     validation_result = validate_uid(extracted_data)
     TEMP_MEMORY[file_id]["validation"] = validation_result
 
