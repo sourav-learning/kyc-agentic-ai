@@ -9,7 +9,7 @@ def extract_data_from_pdf(file_path):
 
         # Example regex-based extraction
         name = re.search(r"Name[:\-]\s*(.+)", text)
-        parent = re.search(r"Parent[:\-]\s*(.+)", text)
+        parent = re.search(r"(?:Parent|Father|Mother|Father's Name|Mother's Name)[:\-]\s*(.+)", text)
         address = re.search(r"Address[:\-]\s*(.+)", text)
         uid = re.search(r"\b\d{12}\b", text)
         dob = re.search(r"(?:DOB|Date of Birth)[:\-]\s*([\d\-\/]+)", text)
