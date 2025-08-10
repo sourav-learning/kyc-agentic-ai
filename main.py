@@ -5,7 +5,7 @@ from agents.orchestrator import orchestrator
 st.title("Instant KYC Validator")
 
 with st.form("kyc_form"):
-    name = st.text_input("Full Name (As per UID)")
+    name = st.text_input("Full Name (As per UID)" )
     parent = st.text_input("Parent's Name")
     address = st.text_area("Address")
     uid = st.text_input("UID Number")

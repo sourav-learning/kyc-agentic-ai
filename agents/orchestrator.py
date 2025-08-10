@@ -27,11 +27,13 @@ def orchestrator(user_input, uploaded_file):
 
     validation_result = validate_uid(extracted_data, user_input)
     TEMP_MEMORY[file_id]["validation"] = validation_result
-
-    send_confirmation_email(
-        email,
-        validation_result["status"],
-        validation_result.get("reason", ""),
-        user_input.get("name", "")
-    )
+    if email: 
+        send_confirmation_email(
+            email,
+            validation_result["status"],
+            validation_result.get("reason", ""),
+            user_input.get("name", "")
+        )
+    else:
+       print("Email address not provided") 
     return f"Validation status: {validation_result['status'].upper()}"

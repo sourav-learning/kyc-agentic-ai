@@ -32,4 +32,4 @@ def validate_uid(extracted_data, entered_data):
             if entered_data.get(key) != uid_data.get(key):
                 return {"status": "failed", "reason": f"Mismatch in {key} between entered data and Test UID database"}
 
-    return {"status": "success"}
+    return {"status": "success", "reason": ""}
