@@ -8,7 +8,7 @@ def validate_uid(extracted_data, entered_data):
     extracted_data: dict from PDF
     entered_data: dict from form (optional, but recommended)
     """
-    uid = extracted_data.get("uid")
+    uid = entered_data.get("uid")
     print('uid to search :' + str(uid))
     print(DUMMY_UID_DB)
     uid_data = DUMMY_UID_DB.get(uid)
@@ -24,12 +24,12 @@ def validate_uid(extracted_data, entered_data):
     # Check PDF-extracted data vs DB
     for key in [k for k in extracted_data.keys() if k != "uid"]:
         if extracted_data.get(key) != uid_data.get(key):
-            return {"status": "failed", "reason": f"Mismatch in {key} between PDF and database"}
+            return {"status": "failed", "reason": f"Mismatch in {key} between PDF and Test UID database"}
 
     # If entered_data is provided, check entered data vs DB
     if entered_data:
         for key in ["name", "parent", "address", "dob"]:
             if entered_data.get(key) != uid_data.get(key):
-                return {"status": "failed", "reason": f"Mismatch in {key} between entered data and database"}
+                return {"status": "failed", "reason": f"Mismatch in {key} between entered data and Test UID database"}
 
     return {"status": "success"}

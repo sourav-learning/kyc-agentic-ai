@@ -9,16 +9,23 @@ pip install -r requirements.txt
 
 NOTE : PyMuPDF is trying to build from source and requires Visual Studio, which is not found on your system. This is a common issue with Python 3.13, as many packages do not yet provide pre-built wheels for this version.
 
-Step1 : Download and install python 3.11.0 from python website
-Step2 : Run the following command to create .env. If you have already created .env using other version, delete the folder and then run the command
+# Pre Work
+1. Create a folder named .streamlit under the project folder
+2. Within it create file named secrets.toml for storing all API keys and other passwords
+3. Make sure to have .gitignore created and add relevant folders and files particularly the secrets.toml so that your keys and passwords do not get exposed.
+
+## Step1 : 
+Download and install python 3.11.0 from python website
+## Step2 : 
+Run the following command to create .env. If you have already created .env using other version, delete the folder and then run the command
 py -3.11 -m venv .env
-Step3 : Activate the virtual environment
+## Step3 : Activate the virtual environment
 .\.env\Scripts\Activate.ps1
-Step4 : Install dependency from requirements file
+## Step4 : Install dependency from requirements file
 pip install -r requirements.txt
-Step5 : Run the following command to simulate a local mail server. (optional)
+## Step5 : Run the following command to simulate a local mail server. (optional)
 python -m aiosmtpd -n -l localhost:1025
-Step 6 : Open a new terminal, active env as before and then run the following command to open streamlit screen
+## Step 6 : Open a new terminal, active env as before and then run the following command to open streamlit screen
 streamlit run main.py
 
 ## TroubleShooting

@@ -27,4 +27,12 @@ with st.form("kyc_form"):
                 "email": email
             }
             result = orchestrator(user_input, uploaded_file)
-            st.success(result)
+            if isinstance(result, dict) and result.get("status", "").lower() == "success":
+                st.success(result)
+            elif isinstance(result, dict):
+                st.error(result)
+            elif isinstance(result, str) and "success" in result.lower():
+                st.success(result)
+            else:
+                st.error(result)
+            st.info("For security reason, sending email to your entered email address is supressed. I can forward you the same email")
