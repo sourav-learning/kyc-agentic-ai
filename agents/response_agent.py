@@ -27,12 +27,14 @@ SENDER_EMAIL = st.secrets["SENDER_EMAIL"]
 client = OpenAI(api_key=OPENAI_API_KEY)
 
 def generate_email_body(status: str, reason: str = "", user_name: str = "") -> str:
+
     status_msg = "approved" if status == "success" else "rejected"
     prompt = f"""
     Compose a polite and professional email message to a user named '{user_name}'.
     The email should inform them that their KYC validation was {status_msg}.
-    {"Include the reason: " + reason if reason else ""}. If there is mismatch with database or record in file,
-    mention that data is not matching with Test unique id database. 
+    {"Include the reason: " + reason if reason else ""}. If the reason says that there is mismatch with database or record in file,
+    then mention that data is not matching with Test unique id database. In case status_msg is approved and reason is empty
+    no need to mention any reason in the email.
     Keep it concise and professional. The message is sent by KYC Assistant from GENAI UID Project
     """
 
