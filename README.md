@@ -37,6 +37,25 @@ streamlit run main.py
 
 > pip install --upgrade openai httpx
 
+# Starting the API locally
+Open a new terminal and run
+python account_api.py
 
-
-
+# Deploying the API
+1. Hosting the API
+Streamlit Cloud does not support running background services like Flask APIs.
+Your account_api.py must be hosted separately (e.g., on a cloud VM, Heroku, Render, AWS, Azure, etc.).
+The API endpoint in your app must use a public URL, not localhost.
+2. Update API Endpoint in account_creation_agent.py
+Change the API host and port to point to your deployed API (e.g., https://your-api-service.com).
+You can use environment variables or Streamlit secrets for the API URL.
+3. Add API URL to Streamlit Secrets
+4. CORS Support
+Ensure your Flask API allows CORS (Cross-Origin Resource Sharing) so Streamlit Cloud can access it.
+Add this to your Flask app:
+    from flask_cors import CORS
+    CORS(app)
+5. Secure Your API
+Use authentication or API keys if your API handles sensitive data.
+6. Remove/Handle Localhost References
+Any reference to localhost in your code must be replaced with the public API URL.

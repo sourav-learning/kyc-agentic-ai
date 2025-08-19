@@ -2,7 +2,13 @@ import streamlit as st
 import datetime
 from agents.orchestrator import orchestrator
 
+
 st.title("Instant KYC Validator")
+
+option = st.radio(
+    "Select Application Type:",
+    ("New Account Opening", "Apply for Loan")
+)
 
 with st.form("kyc_form"):
     name = st.text_input("Full Name (As per UID)" )
@@ -24,7 +30,8 @@ with st.form("kyc_form"):
                 "address": address,
                 "uid": uid,
                 "dob": str(dob),
-                "email": email
+                "email": email,
+                "application_type": option
             }
             result = orchestrator(user_input, uploaded_file)
             if isinstance(result, dict) and result.get("status", "").lower() == "success":

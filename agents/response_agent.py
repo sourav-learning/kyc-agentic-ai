@@ -49,7 +49,7 @@ def generate_email_body(status: str, reason: str = "", user_name: str = "") -> s
     )
     return completion.choices[0].message.content
 
-def send_confirmation_email(to_email, status, reason="", user_name=""):
+def send_confirmation_email(to_email, status, reason="", user_name="", subject="Welcome to ABC Bank"):
 
     
     app_password = GMAIL_APP_PWD
@@ -57,7 +57,7 @@ def send_confirmation_email(to_email, status, reason="", user_name=""):
     message["From"] = SENDER_EMAIL
     print("Intended recipient : " + to_email + "for name : " + user_name)
     message["To"] = "souravk.chatterjee@outlook.com"
-    message["Subject"] = 'KYC Validation Result'
+    message["Subject"] = subject
     body = generate_email_body(status, reason, user_name)
     # Attach text body
     message.attach(MIMEText(body, "plain"))

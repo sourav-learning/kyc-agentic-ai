@@ -1,0 +1,20 @@
+{
+  "accounts": [
+    {
+      "name": "Rohan Sen",
+      "parent": "Sujata Sen",
+      "address": "12B Lake View Road, South Kolkata, West Bengal, 700029",
+      "uid": "999988887777",
+      "dob": "1990-12-15",
+      "account_number": "186013773089"
+    },
+    {
+      "name": "Rohan Sen",
+      "parent": "Sujata Sen",
+      "address": "12B Lake View Road, South Kolkata, West Bengal, 700029",
+      "uid": "999988887777",
+      "dob": "1990-12-15",
+      "account_number": "210482494358"
+    }
+  ]
+}
